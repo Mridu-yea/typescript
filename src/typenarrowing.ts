@@ -12,7 +12,7 @@ function approval(mail?:string){
     return `no mails`
 }
 
-function package(size:"normal"|"premium"|"prime" | number){
+function package1(size:"normal"|"premium"|"prime" | number){
     if (size === "normal"){
         return `materails usage : enough`
     }
@@ -23,19 +23,19 @@ function package(size:"normal"|"premium"|"prime" | number){
 }
 
 class consumer{
-    package(){
+    packagee(){
         return `documents need`
     }
 }
 
 class constructor{
-    package(){
+    packagee(){
         return `materials need`
     }
 }
 function Package(user : consumer | constructor){
-    if (Package instanceof consumer){
-        return Package.package();
+    if (user instanceof consumer){
+        return user.packagee();
     }
 }
 
@@ -58,16 +58,19 @@ type worker = {type : "head" ; pass : number}
 
 type user = dev | owner | worker
 
-function entry (enter : user){
-    switch (enter) {
-        case "dev":
-            return `welcome dev`
+function entry (enter : user) : void{
+    switch (enter.type) {
+        case "admin":
+            console.log(`welcome dev`);
+             
             break;
         case "owner":
-            return `welcome owner`
+            console.log(`welcome owner`);
+             
             break;
-        case "worker":
-            return `welcome worer`
+        case "head":
+            console.log(`welcome worer`);
+            
             break;
     
         default:
